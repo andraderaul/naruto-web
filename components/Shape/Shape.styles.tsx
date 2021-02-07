@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Shape = styled.div`
   position: absolute;
@@ -16,7 +16,7 @@ export const Shape = styled.div`
     width: calc(100% + 1.3px);
     height: 500px;
     transform: rotateY(180deg);
-    .shape-fill {
+    path {
       fill: #28343e;
     }
   }
