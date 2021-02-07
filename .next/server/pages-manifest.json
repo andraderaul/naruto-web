@@ -1,7 +1,14 @@
 {
   "/_app": "pages/_app.js",
   "/_document": "pages/_document.js",
+  "/api/hello": "pages/api/hello.js",
+  "/characters": "pages/characters.js",
+  "/characters/[id]": "pages/characters/[id].js",
+  "/": "pages/index.html",
+  "/jutsus": "pages/jutsus.js",
+  "/jutsus/[id]": "pages/jutsus/[id].html",
+  "/teams": "pages/teams.js",
+  "/teams/[id]": "pages/teams/[id].html",
   "/_error": "pages/_error.js",
-  "/teams/[id]": "pages/teams/[id].js",
-  "/characters": "pages/characters.js"
+  "/404": "pages/404.html"
 }
