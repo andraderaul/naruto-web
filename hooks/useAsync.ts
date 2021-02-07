@@ -1,15 +1,15 @@
-import { useReducer, useCallback } from 'react';
-import { AxiosError } from 'axios';
-import ICharacter from '../interfaces/character';
+import { useReducer, useCallback } from "react";
+import { AxiosError } from "axios";
+import ICharacter from "../interfaces/character";
 
 type TData = ICharacter[] | null;
 type TError = AxiosError | null;
 
 export enum RequestStatus {
-  IDLE = 'idle',
-  PENDING = 'pending',
-  RESOLVED = 'resolved',
-  REJECTED = 'rejected',
+  IDLE = "idle",
+  PENDING = "pending",
+  RESOLVED = "resolved",
+  REJECTED = "rejected",
 }
 
 interface IAction {
@@ -63,7 +63,7 @@ const useAsync = (initialState: IState) => {
     promise.then(
       (data: TData) =>
         dispatch({ type: RequestStatus.RESOLVED, payload: data }),
-      (error: TError) => dispatch({ type: RequestStatus.REJECTED, error }),
+      (error: TError) => dispatch({ type: RequestStatus.REJECTED, error })
     );
   }, []);
 

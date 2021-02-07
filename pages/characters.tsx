@@ -1,15 +1,15 @@
-import { useState, useEffect } from 'react';
-import useAsync, { RequestStatus } from '../hooks/useAsync';
-import { useRouter } from 'next/router';
-import { getCharactersByParams, getCharacters } from '../lib/characters';
-import ICharacter from '../interfaces/character';
-import { CHARACTERS } from '../constants/endpoints';
-import { LINKS } from '../constants/urls';
-import Grid from '../components/Grid';
-import Card from '../components/Card';
-import Search from '../components/Search';
-import Alphabet from '../components/Alphabet';
-import LoadingSharingan from '../components/LoadingSharingan';
+import { useState, useEffect } from "react";
+import useAsync, { RequestStatus } from "../hooks/useAsync";
+import { useRouter } from "next/router";
+import { getCharactersByParams, getCharacters } from "../lib/characters";
+import ICharacter from "../interfaces/character";
+import { CHARACTERS } from "../constants/endpoints";
+import { LINKS } from "../constants/urls";
+import Grid from "../components/Grid";
+import Card from "../components/Card";
+import Search from "../components/Search";
+import Alphabet from "../components/Alphabet";
+import LoadingSharingan from "../components/LoadingSharingan";
 
 interface IPropsCharacter {
   data: ICharacter[];
@@ -30,7 +30,7 @@ const Characters: React.FC<IPropsCharacter> = ({ data }: IPropsCharacter) => {
     data: data,
   });
 
-  const [letter, setLetter] = useState('');
+  const [letter, setLetter] = useState("");
   const router = useRouter();
 
   useEffect(() => {
@@ -38,11 +38,11 @@ const Characters: React.FC<IPropsCharacter> = ({ data }: IPropsCharacter) => {
     if (query.from) {
       const { from } = query;
       setLetter(from as string);
-      return runPromise(getCharactersByParams('from', from as string));
+      return runPromise(getCharactersByParams("from", from as string));
     } else if (query.name) {
       const { name } = query;
-      setLetter('');
-      return runPromise(getCharactersByParams('name', name as string));
+      setLetter("");
+      return runPromise(getCharactersByParams("name", name as string));
     }
   }, [router]);
 
