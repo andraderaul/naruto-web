@@ -1,7 +1,4 @@
-export const baseURL =
-  process.env.NODE_ENV === "development" && false
-    ? "http://localhost:4000/api"
-    : process.env.API;
+export const baseURL = process.env.API;
 
 export const CHARACTERS = "/characters";
 export const TEAMS = "/teams";
