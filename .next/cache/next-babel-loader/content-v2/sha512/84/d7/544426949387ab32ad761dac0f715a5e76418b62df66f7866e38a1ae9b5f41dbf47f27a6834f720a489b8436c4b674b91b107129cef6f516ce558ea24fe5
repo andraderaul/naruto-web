@@ -1,1 +1,0 @@
-{"ast":null,"code":"export { default } from './Search';","map":{"version":3,"sources":["/home/howl/Área de Trabalho/my-projects/naruto/naruto-web/components/Search/index.tsx"],"names":["default"],"mappings":"AAAA,SAASA,OAAT,QAAwB,UAAxB","sourcesContent":["export { default } from './Search';\n"]},"metadata":{},"sourceType":"module"}

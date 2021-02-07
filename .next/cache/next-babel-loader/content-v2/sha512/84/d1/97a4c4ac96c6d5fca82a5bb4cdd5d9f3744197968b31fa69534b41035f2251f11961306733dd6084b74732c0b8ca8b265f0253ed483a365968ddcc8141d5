@@ -1,1 +1,0 @@
-{"ast":null,"code":"export { default } from './LoadingSharingan';","map":{"version":3,"sources":["/home/howl/Área de Trabalho/my-projects/naruto/naruto-web/components/LoadingSharingan/index.tsx"],"names":["default"],"mappings":"AAAA,SAASA,OAAT,QAAwB,oBAAxB","sourcesContent":["export { default } from './LoadingSharingan';\n"]},"metadata":{},"sourceType":"module"}
