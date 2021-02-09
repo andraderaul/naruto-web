@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import media from 'styled-media-query';
+import styled from "styled-components";
+import media from "styled-media-query";
 
 export const Card = styled.div`
   max-width: 75%;
@@ -10,9 +10,10 @@ export const Card = styled.div`
   background-color: #f2d0a9;
   background: linear-gradient(45deg, #f2d0a9, #f1e3d3);
 
-  //TODO: MOBILE
-  ${media.lessThan('medium')`
-    max-width: 90%;
+  ${media.lessThan("medium")`
+    height: auto;
+    flex-direction: column;
+    width: 90%;
   `}
 `;
 
@@ -21,6 +22,11 @@ export const Infos = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+
+  ${media.lessThan("medium")`
+    flex-direction: column;
+    margin: 0 auto;
+  `}
 `;
 
 export const Info = styled.div`
@@ -63,4 +69,11 @@ export const Image = styled.figure`
     height: 100%;
     object-fit: cover;
   }
+
+  //TODO: MOBILE
+  ${media.lessThan("medium")`
+    margin: 1rem auto;
+    max-width: 100%;
+    min-height: 9.5rem;
+  `}
 `;
