@@ -1,8 +1,10 @@
 import { useReducer, useCallback } from "react";
 import { AxiosError } from "axios";
 import ICharacter from "../interfaces/character";
+import IJutsu from "../interfaces/jutsu";
+import ITeam from "../interfaces/team";
 
-type TData = ICharacter[] | null;
+type TData = ICharacter[] | IJutsu[] | ITeam[] | null;
 type TError = AxiosError | null;
 
 export enum RequestStatus {
