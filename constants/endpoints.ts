@@ -1,7 +1,7 @@
 export const baseURL =
   process.env.NODE_ENV === "development"
-    ? "http://localhost:4000/api/"
-    : "https://smoggy-deadly-basil.gigalixirapp.com/api/";
+    ? "http://localhost:4000/api"
+    : "https://smoggy-deadly-basil.gigalixirapp.com/api";
 
 export const CHARACTERS = "/characters";
 export const TEAMS = "/teams";

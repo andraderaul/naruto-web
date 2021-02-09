@@ -1,15 +1,16 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import useAsync, { RequestStatus } from "../hooks/useAsync";
 import { useRouter } from "next/router";
 import { getCharactersByParams, getCharacters } from "../lib/characters";
 import ICharacter from "../interfaces/character";
 import { CHARACTERS } from "../constants/endpoints";
 import { LINKS } from "../constants/urls";
-import Grid from "../components/Grid";
-import Card from "../components/Card";
 import Search from "../components/Search";
 import Alphabet from "../components/Alphabet";
 import LoadingSharingan from "../components/LoadingSharingan";
+import ContentList, {
+  IDataContent,
+} from "../components/ContentList/ContentList";
 
 interface IPropsCharacter {
   data: ICharacter[];
@@ -36,43 +37,31 @@ const Characters: React.FC<IPropsCharacter> = ({ data }: IPropsCharacter) => {
   useEffect(() => {
     const { query } = router;
     if (query.from) {
-      const { from } = query;
+      const from = query.from as string;
       setLetter(from as string);
-      return runPromise(getCharactersByParams("from", from as string));
+      return runPromise(getCharactersByParams("from", from));
     } else if (query.name) {
-      const { name } = query;
+      const name = query.from as string;
       setLetter("");
-      return runPromise(getCharactersByParams("name", name as string));
+      return runPromise(getCharactersByParams("name", name));
     }
   }, [router]);
 
   const RenderContent = () => {
-    switch (status) {
-      case RequestStatus.PENDING:
-        return <LoadingSharingan />;
-      case RequestStatus.RESOLVED:
-        return (
-          <Grid>
-            {dataAsync?.length === 0 ? (
-              <div>Characters not found</div>
-            ) : (
-              dataAsync?.map((item) => (
-                <Card
-                  key={item.id}
-                  src={item.picture}
-                  name={item.name}
-                  id={item.id}
-                  onClick={LINKS.character}
-                />
-              ))
-            )}
-          </Grid>
-        );
-      case RequestStatus.REJECTED:
-        return <div>{error?.message}</div>;
-      default:
-        return <div>Unhandled status: {status}</div>;
-    }
+    const content = {
+      [RequestStatus.PENDING as string]: <LoadingSharingan />,
+      [RequestStatus.RESOLVED as string]: (
+        <ContentList
+          data={dataAsync as IDataContent[]}
+          noContent="Jutsu not found"
+          onClick={LINKS.character}
+        />
+      ),
+      [RequestStatus.REJECTED as string]: <div>{error?.message}</div>,
+      default: <div>Unhandled status: {status}</div>,
+    };
+
+    return content[status ?? "default"];
   };
 
   return (
