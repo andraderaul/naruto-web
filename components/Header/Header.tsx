@@ -1,8 +1,8 @@
-import React, { useCallback } from 'react';
-import Link from 'next/link';
-import * as S from './Header.styles';
-import { ROUTES } from '../../constants/urls';
-import { useRouter } from 'next/router';
+import React, { useCallback } from "react";
+import Link from "next/link";
+import * as S from "./Header.styles";
+import { ROUTES } from "../../constants/urls";
+import { useRouter } from "next/router";
 
 const Header: React.FC = () => {
   const router = useRouter();
@@ -11,7 +11,7 @@ const Header: React.FC = () => {
     (path) => {
       return router.pathname === path;
     },
-    [router],
+    [router]
   );
 
   const handleOnClick = (route: string) => () => {
@@ -19,7 +19,7 @@ const Header: React.FC = () => {
   };
 
   return (
-    <S.Header>
+    <S.Header data-testid="header">
       <S.Nav>
         <div>
           <S.Link
