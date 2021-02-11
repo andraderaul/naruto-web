@@ -1,7 +1,6 @@
-import { alphabet } from '../../constants';
-import { useRouter } from 'next/router';
-import { CHARACTERS } from '../../constants/endpoints';
-import * as S from './Alphabet.styles';
+import { alphabet } from "../../constants";
+import { useRouter } from "next/router";
+import * as S from "./Alphabet.styles";
 
 interface IPropsAlphabet {
   letter: string;
@@ -27,7 +26,7 @@ const Alphabet: React.FC<IPropsAlphabet> = ({
   };
 
   return (
-    <S.Alphabet>
+    <S.Alphabet data-testid="alphabet">
       {alphabet.map((alpha) => (
         <S.Span
           active={letter === alpha}
