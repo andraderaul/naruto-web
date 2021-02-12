@@ -1,8 +1,8 @@
-import * as S from './Card.styles';
-import { useRouter } from 'next/router';
+import * as S from "./Card.styles";
+import { useRouter } from "next/router";
 
 interface ICard {
-  src: string;
+  src?: string;
   name: string;
   id: string;
   onClick: Function;
@@ -15,11 +15,11 @@ const Card: React.FC<ICard> = ({ id, src, name, onClick }) => {
   };
 
   return (
-    <S.Card onClick={handleOnClick}>
+    <S.Card data-testid="card" onClick={handleOnClick}>
       <img
         src={
           src ??
-          'https://milcouros.com.br/wp-content/themes/white/assets/images/placeholder.jpg'
+          "https://milcouros.com.br/wp-content/themes/white/assets/images/placeholder.jpg"
         }
         alt={name}
         loading="lazy"

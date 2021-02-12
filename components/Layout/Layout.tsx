@@ -1,7 +1,7 @@
-import * as S from './Layout.styles';
+import * as S from "./Layout.styles";
 
 const Layout: React.FC = ({ children }) => {
-  return <S.Layout>{children}</S.Layout>;
+  return <S.Layout data-testid="layout">{children}</S.Layout>;
 };
 
 export default Layout;

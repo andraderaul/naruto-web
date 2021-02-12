@@ -3,7 +3,7 @@ import * as S from "./Shape.styles";
 const Shape: React.FC = ({ children }) => {
   return (
     <>
-      <S.Shape>
+      <S.Shape data-testid="shape">
         <svg
           data-name="Layer 1"
           xmlns="http://www.w3.org/2000/svg"

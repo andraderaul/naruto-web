@@ -1,7 +1,6 @@
-import ICharacter from '../../interfaces/character';
-import Shape from '../Shape';
+import ICharacter from "../../interfaces/character";
 
-import * as S from './ChacaracterInfo.styles';
+import * as S from "./ChacaracterInfo.styles";
 
 interface IPropsInfo {
   label: string;
@@ -9,7 +8,7 @@ interface IPropsInfo {
 }
 
 const Info: React.FC<IPropsInfo> = ({ label, value }: IPropsInfo) => {
-  const valueFormatted = typeof value === 'string' ? value : value?.join(' - ');
+  const valueFormatted = typeof value === "string" ? value : value?.join(" - ");
 
   return (
     <S.Info>
@@ -17,7 +16,7 @@ const Info: React.FC<IPropsInfo> = ({ label, value }: IPropsInfo) => {
         <span>{label}:</span>
       </div>
       <div>
-        <span>{valueFormatted || '-'}</span>
+        <span>{valueFormatted || "-"}</span>
       </div>
     </S.Info>
   );
@@ -25,7 +24,7 @@ const Info: React.FC<IPropsInfo> = ({ label, value }: IPropsInfo) => {
 
 const CharacterInfo: React.FC<ICharacter> = (props: ICharacter) => {
   return (
-    <S.Card>
+    <S.Card data-testid="character-info">
       <S.Image>
         <img src={props.picture} alt={props.name} />
       </S.Image>

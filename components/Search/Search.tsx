@@ -1,6 +1,6 @@
-import { useState } from 'react';
-import { useRouter } from 'next/router';
-import * as S from './Search.styles';
+import { useState } from "react";
+import { useRouter } from "next/router";
+import * as S from "./Search.styles";
 
 interface IPropsSearch {
   pathname: string;
@@ -8,14 +8,14 @@ interface IPropsSearch {
 
 const Search: React.FC<IPropsSearch> = ({ pathname }: IPropsSearch) => {
   const router = useRouter();
-  const [text, setText] = useState('');
+  const [text, setText] = useState("");
 
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setText(event.target.value);
   };
 
   const handleOnKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
-    const ENTER = 'Enter';
+    const ENTER = "Enter";
     if (event.key === ENTER && text.length > 0) {
       router.push({
         pathname,
@@ -48,10 +48,11 @@ const Search: React.FC<IPropsSearch> = ({ pathname }: IPropsSearch) => {
   );
 
   return (
-    <S.Wrapper>
+    <S.Wrapper data-testid="search">
       <S.Span>Filter by</S.Span>
       <Icon />
       <S.Input
+        data-testid="input-search"
         placeholder="Search"
         value={text}
         onChange={onChange}

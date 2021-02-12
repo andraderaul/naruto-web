@@ -1,8 +1,8 @@
-import * as S from './LoadingSharingan.styles';
+import * as S from "./LoadingSharingan.styles";
 
 const LoadingSharingan = () => {
   return (
-    <S.Wrapper>
+    <S.Wrapper data-testid="loading-sharingan">
       <S.Sharingan>
         <S.InnerRing>
           <S.Tomoe />

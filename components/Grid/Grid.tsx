@@ -1,7 +1,7 @@
-import * as S from './Grid.styles';
+import * as S from "./Grid.styles";
 
 const Grid: React.FC = ({ children }) => {
-  return <S.Grid>{children}</S.Grid>;
+  return <S.Grid data-testid="grid">{children}</S.Grid>;
 };
 
 export default Grid;
