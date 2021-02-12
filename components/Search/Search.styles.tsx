@@ -1,12 +1,12 @@
-import styled from 'styled-components';
-import media from 'styled-media-query';
+import styled from "styled-components";
+import media from "styled-media-query";
 
 export const Wrapper = styled.div`
   position: relative;
   width: 100%;
   padding: 2rem;
 
-  ${media.lessThan('medium')`
+  ${media.lessThan("medium")`
     padding: 1rem;
     display:flex;
     flex-direction: column;
@@ -38,7 +38,7 @@ export const Input = styled.input`
     background-color: ${({ theme }) => theme.colors.black};
   }
 
-  ${media.lessThan('medium')`
+  ${media.lessThan("medium")`
     width: 100%; 
   `}
 `;
@@ -49,13 +49,12 @@ export const WrapperIcon = styled.div`
   left: 8.6rem;
   height: 2rem;
   width: 2rem;
-  z-index: 1;
 
   svg {
     fill: #adadb8;
   }
 
-  ${media.lessThan('medium')`
+  ${media.lessThan("medium")`
     top:4.5rem;
     left:1.2rem;
   `}
