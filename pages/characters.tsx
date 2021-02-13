@@ -1,22 +1,28 @@
-import React, { useState, useEffect } from "react";
-import useAsync, { RequestStatus } from "../hooks/useAsync";
-import { useRouter } from "next/router";
-import { getCharactersByParams, getCharacters } from "../lib/characters";
-import ICharacter from "../interfaces/character";
-import { CHARACTERS } from "../constants/endpoints";
-import { LINKS } from "../constants/urls";
-import Search from "../components/Search";
-import Alphabet from "../components/Alphabet";
-import LoadingSharingan from "../components/LoadingSharingan";
+import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
+import useAsync, { RequestStatus } from '../hooks/useAsync';
+import { getCharactersByParams, getCharacters } from '../lib/characters';
+import ICharacter from '../interfaces/character';
+import { CHARACTERS } from '../constants/endpoints';
+import { LINKS } from '../constants/urls';
+import Search from '../components/Search';
+import Alphabet from '../components/Alphabet';
+import LoadingSharingan from '../components/LoadingSharingan';
 import ContentList, {
   IDataContent,
-} from "../components/ContentList/ContentList";
+} from '../components/ContentList/ContentList';
 
 interface IPropsCharacter {
   data: ICharacter[];
 }
 
-export async function getStaticProps() {
+interface IStaticProps {
+  props: {
+    data: ICharacter[];
+  };
+}
+
+export async function getStaticProps(): Promise<IStaticProps> {
   const data = await getCharacters();
   return {
     props: {
@@ -28,10 +34,10 @@ export async function getStaticProps() {
 const Characters: React.FC<IPropsCharacter> = ({ data }: IPropsCharacter) => {
   const { status, error, data: dataAsync, runPromise } = useAsync({
     status: RequestStatus.RESOLVED,
-    data: data,
+    data,
   });
 
-  const [letter, setLetter] = useState("");
+  const [letter, setLetter] = useState('');
   const router = useRouter();
 
   useEffect(() => {
@@ -39,15 +45,18 @@ const Characters: React.FC<IPropsCharacter> = ({ data }: IPropsCharacter) => {
     if (query.from) {
       const from = query.from as string;
       setLetter(from as string);
-      return runPromise(getCharactersByParams("from", from));
-    } else if (query.name) {
-      const name = query.from as string;
-      setLetter("");
-      return runPromise(getCharactersByParams("name", name));
+      return runPromise(getCharactersByParams('from', from));
     }
-  }, [router]);
+    if (query.name) {
+      const name = query.from as string;
+      setLetter('');
+      return runPromise(getCharactersByParams('name', name));
+    }
 
-  const RenderContent = () => {
+    return () => {};
+  }, [router, runPromise]);
+
+  const RenderContent: React.FC = () => {
     const content = {
       [RequestStatus.PENDING as string]: <LoadingSharingan />,
       [RequestStatus.RESOLVED as string]: (
@@ -61,7 +70,7 @@ const Characters: React.FC<IPropsCharacter> = ({ data }: IPropsCharacter) => {
       default: <div>Unhandled status: {status}</div>,
     };
 
-    return content[status ?? "default"];
+    return content[status ?? 'default'];
   };
 
   return (
