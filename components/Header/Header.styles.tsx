@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import media from "styled-media-query";
+import styled from 'styled-components';
+import media from 'styled-media-query';
 
 interface ILinkStyledProps {
   active?: boolean;
@@ -23,7 +23,7 @@ export const Header = styled.header`
   top: 0;
   z-index: 1;
 
-  ${media.lessThan("medium")`
+  ${media.lessThan('medium')`
     position: relative;
   `}
 `;
@@ -36,7 +36,7 @@ export const Nav = styled.nav`
 
   ${fadeIn}
 
-  ${media.lessThan("medium")`
+  ${media.lessThan('medium')`
     flex-direction: column;
     align-items: center;
     div {
@@ -61,7 +61,7 @@ export const Link = styled.div<ILinkStyledProps>`
     ${fadeIn}
   }
 
-  ${media.lessThan("medium")`
+  ${media.lessThan('medium')`
     padding: 1rem;
     width: 100%;
     display: flex;
@@ -74,7 +74,7 @@ export const Links = styled.div`
   display: flex;
   justify-content: space-between;
 
-  ${media.lessThan("medium")`
+  ${media.lessThan('medium')`
     width: 100%;
     flex-direction: column;
     align-items: center;
