@@ -48,7 +48,7 @@ const Characters: React.FC<IPropsCharacter> = ({ data }: IPropsCharacter) => {
       return runPromise(getCharactersByParams('from', from));
     }
     if (query.name) {
-      const name = query.from as string;
+      const name = query.name as string;
       setLetter('');
       return runPromise(getCharactersByParams('name', name));
     }
@@ -62,7 +62,7 @@ const Characters: React.FC<IPropsCharacter> = ({ data }: IPropsCharacter) => {
       [RequestStatus.RESOLVED as string]: (
         <ContentList
           data={dataAsync as IDataContent[]}
-          noContent="Jutsu not found"
+          noContent="Character not found"
           onClick={LINKS.character}
         />
       ),
