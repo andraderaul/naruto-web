@@ -1,22 +1,27 @@
-import React, { useEffect, useState } from "react";
-import { getTeams, getTeamsByParams } from "../lib/teams";
-import ITeam from "../interfaces/team";
-import { LINKS } from "../constants/urls";
-import { TEAMS } from "../constants/endpoints";
-import Search from "../components/Search";
-import Alphabet from "../components/Alphabet";
-import useAsync, { RequestStatus } from "../hooks/useAsync";
-import { useRouter } from "next/router";
+import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
+import { getTeams, getTeamsByParams } from '../lib/teams';
+import ITeam from '../interfaces/team';
+import { LINKS } from '../constants/urls';
+import { TEAMS } from '../constants/endpoints';
+import Search from '../components/Search';
+import Alphabet from '../components/Alphabet';
+import useAsync, { RequestStatus } from '../hooks/useAsync';
 import ContentList, {
   IDataContent,
-} from "../components/ContentList/ContentList";
-import LoadingSharingan from "../components/LoadingSharingan";
+} from '../components/ContentList/ContentList';
+import LoadingSharingan from '../components/LoadingSharingan';
 
 interface IPropsTeam {
   data: ITeam[];
 }
 
-export async function getStaticProps() {
+interface IStaticProps {
+  props: {
+    data: ITeam[];
+  };
+}
+export async function getStaticProps(): Promise<IStaticProps> {
   const data = await getTeams();
   return {
     props: {
@@ -28,10 +33,10 @@ export async function getStaticProps() {
 const Teams: React.FC<IPropsTeam> = ({ data }: IPropsTeam) => {
   const { status, error, data: dataAsync, runPromise } = useAsync({
     status: RequestStatus.RESOLVED,
-    data: data,
+    data,
   });
 
-  const [letter, setLetter] = useState("");
+  const [letter, setLetter] = useState('');
   const router = useRouter();
 
   useEffect(() => {
@@ -39,15 +44,18 @@ const Teams: React.FC<IPropsTeam> = ({ data }: IPropsTeam) => {
     if (query.from) {
       const from = query.from as string;
       setLetter(from);
-      return runPromise(getTeamsByParams("from", from));
-    } else if (query.name) {
-      const name = query.name as string;
-      setLetter("");
-      return runPromise(getTeamsByParams("name", name));
+      return runPromise(getTeamsByParams('from', from));
     }
-  }, [router]);
+    if (query.name) {
+      const name = query.name as string;
+      setLetter('');
+      return runPromise(getTeamsByParams('name', name));
+    }
 
-  const RenderContent = () => {
+    return () => {};
+  }, [router, runPromise]);
+
+  const RenderContent: React.FC = () => {
     const content = {
       [RequestStatus.PENDING as string]: <LoadingSharingan />,
       [RequestStatus.RESOLVED as string]: (
@@ -61,7 +69,7 @@ const Teams: React.FC<IPropsTeam> = ({ data }: IPropsTeam) => {
       default: <div>Unhandled status: {status}</div>,
     };
 
-    return content[status ?? "default"];
+    return content[status ?? 'default'];
   };
 
   return (

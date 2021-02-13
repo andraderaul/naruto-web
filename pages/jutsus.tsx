@@ -1,21 +1,28 @@
-import { useEffect, useState } from "react";
-import { getJutsus, getJutsusByParams } from "../lib/jutsus";
-import IJutsu from "../interfaces/jutsu";
-import { LINKS } from "../constants/urls";
-import { JUTSUS } from "../constants/endpoints";
-import Search from "../components/Search";
-import Alphabet from "../components/Alphabet";
-import useAsync, { RequestStatus } from "../hooks/useAsync";
-import { useRouter } from "next/router";
-import LoadingSharingan from "../components/LoadingSharingan";
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
+import { getJutsus, getJutsusByParams } from '../lib/jutsus';
+import IJutsu from '../interfaces/jutsu';
+import { LINKS } from '../constants/urls';
+import { JUTSUS } from '../constants/endpoints';
+import Search from '../components/Search';
+import Alphabet from '../components/Alphabet';
+import useAsync, { RequestStatus } from '../hooks/useAsync';
+import LoadingSharingan from '../components/LoadingSharingan';
 import ContentList, {
   IDataContent,
-} from "../components/ContentList/ContentList";
+} from '../components/ContentList/ContentList';
+
 interface IPropsJutsu {
   data: IJutsu[];
 }
 
-export async function getStaticProps() {
+interface IStaticProps {
+  props: {
+    data: IJutsu[];
+  };
+}
+
+export async function getStaticProps(): Promise<IStaticProps> {
   const data = await getJutsus();
   return {
     props: {
@@ -27,10 +34,10 @@ export async function getStaticProps() {
 const Jutsus: React.FC<IPropsJutsu> = ({ data }: IPropsJutsu) => {
   const { status, error, data: dataAsync, runPromise } = useAsync({
     status: RequestStatus.RESOLVED,
-    data: data,
+    data,
   });
 
-  const [letter, setLetter] = useState("");
+  const [letter, setLetter] = useState('');
   const router = useRouter();
 
   useEffect(() => {
@@ -38,15 +45,18 @@ const Jutsus: React.FC<IPropsJutsu> = ({ data }: IPropsJutsu) => {
     if (query.from) {
       const from = query.from as string;
       setLetter(from);
-      return runPromise(getJutsusByParams("from", from));
-    } else if (query.name) {
-      const name = query.name as string;
-      setLetter("");
-      return runPromise(getJutsusByParams("name", name));
+      return runPromise(getJutsusByParams('from', from));
     }
-  }, [router]);
+    if (query.name) {
+      const name = query.name as string;
+      setLetter('');
+      return runPromise(getJutsusByParams('name', name));
+    }
 
-  const RenderContent = () => {
+    return () => {};
+  }, [router, runPromise]);
+
+  const RenderContent: React.FC = () => {
     const content = {
       [RequestStatus.PENDING as string]: <LoadingSharingan />,
       [RequestStatus.RESOLVED as string]: (
@@ -60,7 +70,7 @@ const Jutsus: React.FC<IPropsJutsu> = ({ data }: IPropsJutsu) => {
       default: <div>Unhandled status: {status}</div>,
     };
 
-    return content[status ?? "default"];
+    return content[status ?? 'default'];
   };
 
   return (
