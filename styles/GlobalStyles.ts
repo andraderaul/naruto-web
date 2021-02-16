@@ -20,6 +20,7 @@ export const theme = {
     small: '1rem',
     medium: '1.2rem',
     large: '1.5rem',
+    extraLarge: '3rem',
   },
   effect: {
     fadeIn: `
