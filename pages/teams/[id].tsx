@@ -1,5 +1,3 @@
-const Team = () => {
-  return <div>team</div>;
-};
+const Team = () => <div>team</div>;
 
 export default Team;

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import PageTitle from '../components/PageTitle';
 import { getJutsus, getJutsusByParams } from '../lib/jutsus';
 import IJutsu from '../interfaces/jutsu';
 import { LINKS } from '../constants/urls';
@@ -75,6 +76,7 @@ const Jutsus: React.FC<IPropsJutsu> = ({ data }: IPropsJutsu) => {
 
   return (
     <>
+      <PageTitle title={JUTSUS} />
       <Search pathname={JUTSUS} />
       <Alphabet pathname={JUTSUS} letter={letter} setLetter={setLetter} />
       <RenderContent />

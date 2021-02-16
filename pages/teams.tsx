@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import PageTitle from '../components/PageTitle';
 import { getTeams, getTeamsByParams } from '../lib/teams';
 import ITeam from '../interfaces/team';
 import { LINKS } from '../constants/urls';
@@ -74,6 +75,7 @@ const Teams: React.FC<IPropsTeam> = ({ data }: IPropsTeam) => {
 
   return (
     <>
+      <PageTitle title={TEAMS} />
       <Search pathname={TEAMS} />
       <Alphabet pathname={TEAMS} letter={letter} setLetter={setLetter} />
       <RenderContent />

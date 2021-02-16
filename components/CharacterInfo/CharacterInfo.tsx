@@ -22,19 +22,28 @@ const Info: React.FC<IPropsInfo> = ({ label, value }: IPropsInfo) => {
   );
 };
 
-const CharacterInfo: React.FC<ICharacter> = (props: ICharacter) => (
+const CharacterInfo: React.FC<ICharacter> = ({
+  picture,
+  name,
+  kanji_name: kanjiName,
+  birthday,
+  gender,
+  age,
+  height,
+  weight,
+}: ICharacter) => (
   <S.Card data-testid="character-info">
     <S.Image>
-      <img src={props.picture} alt={props.name} />
+      <img src={picture} alt={name} />
     </S.Image>
     <S.Infos>
-      <Info label="Name" value={props.name} />
-      <Info label="Kanji Name" value={props.kanji_name} />
-      <Info label="Birthdate" value={props.birthday} />
-      <Info label="Gender" value={props.gender} />
-      <Info label="Age" value={props.age} />
-      <Info label="Height" value={props.height} />
-      <Info label="Weight" value={props.weight} />
+      <Info label="Name" value={name} />
+      <Info label="Kanji Name" value={kanjiName} />
+      <Info label="Birthdate" value={birthday} />
+      <Info label="Gender" value={gender} />
+      <Info label="Age" value={age} />
+      <Info label="Height" value={height} />
+      <Info label="Weight" value={weight} />
     </S.Infos>
   </S.Card>
 );

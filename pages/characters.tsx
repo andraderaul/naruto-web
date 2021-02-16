@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import PageTitle from '../components/PageTitle';
 import useAsync, { RequestStatus } from '../hooks/useAsync';
 import { getCharactersByParams, getCharacters } from '../lib/characters';
 import ICharacter from '../interfaces/character';
@@ -75,6 +76,7 @@ const Characters: React.FC<IPropsCharacter> = ({ data }: IPropsCharacter) => {
 
   return (
     <>
+      <PageTitle title={CHARACTERS} />
       <Search pathname={CHARACTERS} />
       <Alphabet letter={letter} setLetter={setLetter} pathname={CHARACTERS} />
       <RenderContent />
