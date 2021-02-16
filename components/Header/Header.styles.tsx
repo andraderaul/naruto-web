@@ -23,15 +23,17 @@ export const Nav = styled.nav`
   justify-content: space-around;
   align-items: center;
 
-  ${({ theme }) => theme.effect.fadeIn}
-
-  ${media.lessThan('medium')`
-    flex-direction: column;
-    align-items: center;
+  ${media.lessThan('small')`
+    flex-direction: column-reverse;
+    
     div {
+      display: flex;
       width: 100%;
+      justify-content:center;
     }
   `}
+
+  ${({ theme }) => theme.effect.fadeIn}
 `;
 
 export const Link = styled.div<ILinkStyledProps>`

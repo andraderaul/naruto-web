@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import media from "styled-media-query";
+import styled from 'styled-components';
+import media from 'styled-media-query';
 
 export const Card = styled.div`
   max-width: 75%;
@@ -10,7 +10,7 @@ export const Card = styled.div`
   background-color: #f2d0a9;
   background: linear-gradient(45deg, #f2d0a9, #f1e3d3);
 
-  ${media.lessThan("medium")`
+  ${media.lessThan('medium')`
     height: auto;
     flex-direction: column;
     width: 90%;
@@ -23,7 +23,7 @@ export const Infos = styled.div`
   flex-direction: column;
   justify-content: space-around;
 
-  ${media.lessThan("medium")`
+  ${media.lessThan('medium')`
     flex-direction: column;
     margin: 0 auto;
   `}
@@ -44,18 +44,24 @@ export const Info = styled.div`
     }
   }
 
-  div:nth-child(2) {
-    animation: slide-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  ${media.greaterThan('small')`
+    div:nth-child(2) {
+      animation: slide-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 
-    @keyframes slide-right {
-      0% {
-        transform: translateX(0);
-      }
-      100% {
-        transform: translateX(100px);
+      @keyframes slide-right {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(100px);
+        }
       }
     }
-  }
+  `}
+
+  ${media.lessThan('small')`
+    flex-direction: column;
+  `}
 `;
 
 export const Image = styled.figure`
@@ -71,7 +77,7 @@ export const Image = styled.figure`
   }
 
   //TODO: MOBILE
-  ${media.lessThan("medium")`
+  ${media.lessThan('medium')`
     margin: 1rem auto;
     max-width: 100%;
     min-height: 9.5rem;
