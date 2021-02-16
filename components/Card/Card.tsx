@@ -1,5 +1,5 @@
-import * as S from "./Card.styles";
-import { useRouter } from "next/router";
+import { useRouter } from 'next/router';
+import * as S from './Card.styles';
 
 interface ICard {
   src?: string;
@@ -8,9 +8,9 @@ interface ICard {
   onClick: Function;
 }
 
-const Card: React.FC<ICard> = ({ id, src, name, onClick }) => {
+const Card: React.FC<ICard> = ({ id, src, name, onClick }: ICard) => {
   const router = useRouter();
-  const handleOnClick = () => {
+  const handleOnClick = (): void => {
     router.push(onClick(id));
   };
 
@@ -19,7 +19,7 @@ const Card: React.FC<ICard> = ({ id, src, name, onClick }) => {
       <img
         src={
           src ??
-          "https://milcouros.com.br/wp-content/themes/white/assets/images/placeholder.jpg"
+          'https://milcouros.com.br/wp-content/themes/white/assets/images/placeholder.jpg'
         }
         alt={name}
         loading="lazy"
@@ -27,6 +27,10 @@ const Card: React.FC<ICard> = ({ id, src, name, onClick }) => {
       <span>{name}</span>
     </S.Card>
   );
+};
+
+Card.defaultProps = {
+  src: '',
 };
 
 export default Card;

@@ -1,5 +1,6 @@
-import Grid from "../Grid";
-import Card from "../Card";
+import Grid from '../Grid';
+import Card from '../Card';
+import EmptyState from '../EmptyState';
 
 export interface IDataContent {
   id: string;
@@ -17,24 +18,22 @@ const ContentList: React.FC<IPropsContentList> = ({
   data,
   noContent,
   onClick,
-}) => {
-  return (
-    <Grid>
-      {data?.length === 0 ? (
-        <div>{noContent}</div>
-      ) : (
-        data?.map((item) => (
-          <Card
-            key={item.id}
-            src={item.picture}
-            name={item.name}
-            id={item.id}
-            onClick={onClick}
-          />
-        ))
-      )}
-    </Grid>
-  );
-};
+}: IPropsContentList) => (
+  <Grid>
+    {data?.length === 0 ? (
+      <EmptyState description={noContent} />
+    ) : (
+      data?.map((item) => (
+        <Card
+          key={item.id}
+          src={item.picture}
+          name={item.name}
+          id={item.id}
+          onClick={onClick}
+        />
+      ))
+    )}
+  </Grid>
+);
 
 export default ContentList;

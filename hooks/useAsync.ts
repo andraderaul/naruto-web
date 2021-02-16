@@ -1,17 +1,17 @@
-import { useReducer, useCallback } from "react";
-import { AxiosError } from "axios";
-import ICharacter from "../interfaces/character";
-import IJutsu from "../interfaces/jutsu";
-import ITeam from "../interfaces/team";
+import { useReducer, useCallback } from 'react';
+import { AxiosError } from 'axios';
+import ICharacter from '../interfaces/character';
+import IJutsu from '../interfaces/jutsu';
+import ITeam from '../interfaces/team';
 
 type TData = ICharacter[] | IJutsu[] | ITeam[] | null;
 type TError = AxiosError | null;
 
 export enum RequestStatus {
-  IDLE = "idle",
-  PENDING = "pending",
-  RESOLVED = "resolved",
-  REJECTED = "rejected",
+  IDLE = 'idle',
+  PENDING = 'pending',
+  RESOLVED = 'resolved',
+  REJECTED = 'rejected',
 }
 
 interface IAction {
@@ -24,6 +24,13 @@ interface IState {
   status?: string;
   data?: TData;
   error?: TError;
+}
+
+interface IUseAsync {
+  status?: string;
+  data?: TData;
+  error?: TError;
+  runPromise: Function;
 }
 
 export const asyncReduce = (state: IState, action: IAction): IState => {
@@ -52,7 +59,7 @@ export const asyncReduce = (state: IState, action: IAction): IState => {
   }
 };
 
-const useAsync = (initialState: IState) => {
+const useAsync = (initialState: IState): IUseAsync => {
   const [state, dispatch] = useReducer(asyncReduce, {
     status: RequestStatus.IDLE,
     data: null,
@@ -65,7 +72,7 @@ const useAsync = (initialState: IState) => {
     promise.then(
       (data: TData) =>
         dispatch({ type: RequestStatus.RESOLVED, payload: data }),
-      (error: TError) => dispatch({ type: RequestStatus.REJECTED, error })
+      (error: TError) => dispatch({ type: RequestStatus.REJECTED, error }),
     );
   }, []);
 
