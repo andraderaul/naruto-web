@@ -17,3 +17,10 @@ export const Banner = styled.div`
     margin-top: 0;
   `}
 `;
+
+export const NoBanner = styled.div`
+  margin-top: 4.1rem;
+  ${media.lessThan('medium')`
+    margin-top: 0;
+  `}
+`;
