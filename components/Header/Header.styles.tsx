@@ -5,17 +5,6 @@ interface ILinkStyledProps {
   active?: boolean;
 }
 
-const fadeIn = `
-animation: fadeIn ease 1s;
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-}`;
-
 export const Header = styled.header`
   width: 100%;
   background-color: ${({ theme }) => theme.colors.gray};
@@ -34,7 +23,7 @@ export const Nav = styled.nav`
   justify-content: space-around;
   align-items: center;
 
-  ${fadeIn}
+  ${({ theme }) => theme.effect.fadeIn}
 
   ${media.lessThan('medium')`
     flex-direction: column;
@@ -58,7 +47,7 @@ export const Link = styled.div<ILinkStyledProps>`
   &:hover {
     background-color: ${({ theme }) => theme.colors.opac6};
     text-decoration: underline;
-    ${fadeIn}
+    ${({ theme }) => theme.effect.fadeIn}
   }
 
   ${media.lessThan('medium')`

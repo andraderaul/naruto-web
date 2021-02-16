@@ -21,6 +21,25 @@ export const theme = {
     medium: '1.2rem',
     large: '1.5rem',
   },
+  effect: {
+    fadeIn: `
+      animation: fadeIn ease 1s;
+      @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    `,
+    grow: `
+      animation: grow ease 0.5s;
+      @keyframes grow {
+      0% {
+        width: 2%;
+      }
+      `,
+  },
 };
 
 const GlobalStyle = createGlobalStyle`
