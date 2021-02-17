@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
   flex-direction: column;
 
   span {
-    color: ${({ theme }) => theme.colors.orangeLight};
+    color: ${({ theme }) => theme.colors.primaryLight};
     font-size: ${({ theme }) => theme.fontSize.large};
   }
 `;

@@ -7,7 +7,7 @@ interface ILinkStyledProps {
 
 export const Header = styled.header`
   width: 100%;
-  background-color: ${({ theme }) => theme.colors.gray};
+  background-color: ${({ theme }) => theme.colors.secondary};
   position: fixed;
   top: 0;
   z-index: 1;
@@ -39,12 +39,12 @@ export const Nav = styled.nav`
 export const Link = styled.div<ILinkStyledProps>`
   padding: 1.5rem;
   background-color: ${({ active, theme }) =>
-    active ? theme.colors.orange : theme.colors.gray};
+    active ? theme.colors.primary : theme.colors.secondary};
   cursor: pointer;
   a {
     text-decoration: none;
     font-size: ${({ theme }) => theme.fontSize.large};
-    color: ${({ theme }) => theme.colors.orangeLight};
+    color: ${({ theme }) => theme.colors.primaryLight};
   }
   &:hover {
     background-color: ${({ theme }) => theme.colors.opac6};

@@ -7,8 +7,9 @@ export const Card = styled.div`
   padding: 1.5rem;
   margin: 2rem auto;
   display: flex;
-  background-color: #f2d0a9;
-  background: linear-gradient(45deg, #f2d0a9, #f1e3d3);
+  background-color: ${({ theme }) => theme.colors.gradientStart};
+  background: ${({ theme }) =>
+    `linear-gradient(45deg, ${theme.colors.gradientStart}, ${theme.colors.gradientEnd})`};
 
   ${media.lessThan('medium')`
     height: auto;
@@ -33,7 +34,7 @@ export const Info = styled.div`
   display: flex;
 
   span {
-    color: ${({ theme }) => theme.colors.gray};
+    color: ${({ theme }) => theme.colors.secondary};
     font-size: ${({ theme }) => theme.fontSize.medium};
   }
 

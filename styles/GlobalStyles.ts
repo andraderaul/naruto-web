@@ -1,18 +1,35 @@
 import { createGlobalStyle } from 'styled-components';
 
+export const colorsLight = {
+  primary: '#f6894d',
+  primaryLight: '#3E3E3E',
+  secondary: '#F1E3D3',
+  secondaryLight: '#efeff1',
+  white: '#FFFFFF',
+  black: '#000',
+  body: '#fff6ed',
+  opac4: 'hsla(0,0%,100%,0.2)',
+  opac6: 'hsla(0,0%,100%,0.3)',
+  gradientStart: '#997562',
+  gradientEnd: '#b59a8d',
+};
+
+export const colorsDark = {
+  primary: '#f6894d',
+  primaryLight: '#F1E3D3',
+  secondary: '#3E3E3E',
+  secondaryLight: '#efeff1',
+  white: '#FFFFFF',
+  black: '#000',
+  body: '#242424',
+  opac4: 'hsla(0,0%,100%,0.2)',
+  opac6: 'hsla(0,0%,100%,0.3)',
+  gradientStart: '#f2d0a9',
+  gradientEnd: '#f1e3d3',
+};
+
 export const theme = {
-  colors: {
-    primary: '#fff',
-    white: '#FFFFFF',
-    black: '#000',
-    gray: '#3E3E3E',
-    grayLight: '#efeff1',
-    grayBody: '#242424',
-    orange: '#f6894d',
-    orangeLight: '#F1E3D3',
-    opac4: 'hsla(0,0%,100%,0.2)',
-    opac6: 'hsla(0,0%,100%,0.3)',
-  },
+  colors: colorsDark,
   width: {
     border: '2px',
   },
@@ -59,7 +76,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     body {
-      background-color: #242424
+      background-color: ${theme.colors.body}
     }
 `;
 

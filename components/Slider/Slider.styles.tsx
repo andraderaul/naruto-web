@@ -9,5 +9,5 @@ export const WrapperSlider = styled.div`
 `;
 export const Title = styled.h2`
   padding: 1.5rem 0rem;
-  color: ${({ theme }) => theme.colors.orangeLight};
+  color: ${({ theme }) => theme.colors.primaryLight};
 `;

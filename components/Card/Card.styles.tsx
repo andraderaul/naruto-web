@@ -38,7 +38,7 @@ export const Card = styled.div`
 
   span {
     padding-top: 0.5rem;
-    color: ${({ theme }) => theme.colors.orangeLight};
+    color: ${({ theme }) => theme.colors.primaryLight};
     font-size: ${({ theme }) => theme.fontSize.medium};
   }
 `;

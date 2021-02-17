@@ -16,8 +16,8 @@ export const Wrapper = styled.div`
 export const Input = styled.input`
   width: 16rem;
   height: 2rem;
-  background-color: ${({ theme }) => theme.colors.gray};
-  color: ${({ theme }) => theme.colors.grayLight};
+  background-color: ${({ theme }) => theme.colors.secondary};
+  color: ${({ theme }) => theme.colors.secondaryLight};
   line-height: 1.5;
   font-size: ${({ theme }) => theme.fontSize.small};
   transition: box-shadow 0.1s ease-in, border 0.1s ease-in,
@@ -34,7 +34,7 @@ export const Input = styled.input`
 
   &:focus {
     border: ${({ theme }) => theme.width.border} solid
-      ${({ theme }) => theme.colors.orange};
+      ${({ theme }) => theme.colors.primary};
     background-color: ${({ theme }) => theme.colors.black};
   }
 
@@ -64,5 +64,5 @@ export const WrapperIcon = styled.div`
 export const Span = styled.span`
   font-size: ${({ theme }) => theme.fontSize.medium};
   padding: 1rem;
-  color: ${({ theme }) => theme.colors.orangeLight};
+  color: ${({ theme }) => theme.colors.primaryLight};
 `;

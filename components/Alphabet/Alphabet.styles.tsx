@@ -13,7 +13,7 @@ interface ISpanStyledProps {
 export const Span = styled.span<ISpanStyledProps>`
   padding: 0.1rem 1rem;
   color: ${({ theme, active }) =>
-    active ? theme.colors.orange : theme.colors.orangeLight};
+    active ? theme.colors.primary : theme.colors.primaryLight};
   font-size: ${({ theme }) => theme.fontSize.medium};
 
   &:hover {
