@@ -1,11 +1,11 @@
-import React from "react";
-import { ThemeProvider } from "styled-components";
-import { theme } from "../../styles/GlobalStyles";
-import { render as defaultRender } from "@testing-library/react";
-import { RouterContext } from "next/dist/next-server/lib/router-context";
-import { NextRouter } from "next/router";
+import React from 'react';
+import { ThemeProvider } from 'styled-components';
+import { render as defaultRender } from '@testing-library/react';
+import { RouterContext } from 'next/dist/next-server/lib/router-context';
+import { NextRouter } from 'next/router';
+import { theme } from '../../styles/GlobalStyles';
 
-export * from "@testing-library/react";
+export * from '@testing-library/react';
 
 type DefaultParams = Parameters<typeof defaultRender>;
 type RenderUI = DefaultParams[0];
@@ -13,7 +13,7 @@ type RenderOptions = DefaultParams[1] & { router?: Partial<NextRouter> };
 
 export function render(
   ui: RenderUI,
-  { wrapper, router, ...options }: RenderOptions = {}
+  { wrapper, router, ...options }: RenderOptions = {},
 ) {
   if (!wrapper) {
     wrapper = ({ children }) => (
@@ -27,11 +27,11 @@ export function render(
 }
 
 const mockRouter: NextRouter = {
-  basePath: "/",
-  pathname: "/",
-  route: "/",
+  basePath: '/',
+  pathname: '/',
+  route: '/',
   query: {},
-  asPath: "/",
+  asPath: '/',
   push: jest.fn(() => Promise.resolve(true)),
   replace: jest.fn(() => Promise.resolve(true)),
   reload: jest.fn(() => Promise.resolve(true)),

@@ -1,6 +1,6 @@
-import { alphabet } from "../../constants";
-import { useRouter } from "next/router";
-import * as S from "./Alphabet.styles";
+import { useRouter } from 'next/router';
+import { alphabet } from '../../constants';
+import * as S from './Alphabet.styles';
 
 interface IPropsAlphabet {
   letter: string;

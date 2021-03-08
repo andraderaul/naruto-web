@@ -1,7 +1,10 @@
-import * as S from "./Layout.styles";
+import * as S from './Layout.styles';
 
-const Layout: React.FC = ({ children }) => {
-  return <S.Layout data-testid="layout">{children}</S.Layout>;
-};
+interface IPropsLayout {
+  children: React.ReactNode;
+}
+const Layout: React.FC<IPropsLayout> = ({ children }: IPropsLayout) => (
+  <S.Layout data-testid="layout">{children}</S.Layout>
+);
 
 export default Layout;
