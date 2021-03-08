@@ -3,15 +3,13 @@ import { useRouter } from 'next/router';
 import PageTitle from '../components/PageTitle';
 import { getJutsus, getJutsusByParams } from '../lib/jutsus';
 import IJutsu from '../interfaces/jutsu';
-import { LINKS } from '../constants/urls';
 import { JUTSUS } from '../constants/endpoints';
 import Search from '../components/Search';
 import Alphabet from '../components/Alphabet';
 import useAsync, { RequestStatus } from '../hooks/useAsync';
-import LoadingSharingan from '../components/LoadingSharingan';
-import ContentList, {
-  IDataContent,
-} from '../components/ContentList/ContentList';
+import { LINKS } from '../constants/urls';
+import RenderContent from '../components/RenderContent';
+import { IDataContent } from '../components/ContentList/ContentList';
 
 interface IPropsJutsu {
   data: IJutsu[];
@@ -57,29 +55,18 @@ const Jutsus: React.FC<IPropsJutsu> = ({ data }: IPropsJutsu) => {
     return () => {};
   }, [router, runPromise]);
 
-  const RenderContent: React.FC = () => {
-    const content = {
-      [RequestStatus.PENDING as string]: <LoadingSharingan />,
-      [RequestStatus.RESOLVED as string]: (
-        <ContentList
-          data={dataAsync as IDataContent[]}
-          noContent="Jutsu not found"
-          onClick={LINKS.jutsu}
-        />
-      ),
-      [RequestStatus.REJECTED as string]: <div>{error?.message}</div>,
-      default: <div>Unhandled status: {status}</div>,
-    };
-
-    return content[status ?? 'default'];
-  };
-
   return (
     <>
       <PageTitle title={JUTSUS} />
       <Search pathname={JUTSUS} />
       <Alphabet pathname={JUTSUS} letter={letter} setLetter={setLetter} />
-      <RenderContent />
+      <RenderContent
+        onClick={LINKS.jutsu}
+        noContentMessage="Jutsus not found"
+        status={status}
+        error={error?.message || ''}
+        data={dataAsync as IDataContent[]}
+      />
     </>
   );
 };

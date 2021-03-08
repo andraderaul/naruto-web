@@ -8,10 +8,8 @@ import { TEAMS } from '../constants/endpoints';
 import Search from '../components/Search';
 import Alphabet from '../components/Alphabet';
 import useAsync, { RequestStatus } from '../hooks/useAsync';
-import ContentList, {
-  IDataContent,
-} from '../components/ContentList/ContentList';
-import LoadingSharingan from '../components/LoadingSharingan';
+import { IDataContent } from '../components/ContentList/ContentList';
+import RenderContent from '../components/RenderContent';
 
 interface IPropsTeam {
   data: ITeam[];
@@ -56,29 +54,18 @@ const Teams: React.FC<IPropsTeam> = ({ data }: IPropsTeam) => {
     return () => {};
   }, [router, runPromise]);
 
-  const RenderContent: React.FC = () => {
-    const content = {
-      [RequestStatus.PENDING as string]: <LoadingSharingan />,
-      [RequestStatus.RESOLVED as string]: (
-        <ContentList
-          data={dataAsync as IDataContent[]}
-          noContent="Team not found"
-          onClick={LINKS.team}
-        />
-      ),
-      [RequestStatus.REJECTED as string]: <div>{error?.message}</div>,
-      default: <div>Unhandled status: {status}</div>,
-    };
-
-    return content[status ?? 'default'];
-  };
-
   return (
     <>
       <PageTitle title={TEAMS} />
       <Search pathname={TEAMS} />
       <Alphabet pathname={TEAMS} letter={letter} setLetter={setLetter} />
-      <RenderContent />
+      <RenderContent
+        onClick={LINKS.team}
+        noContentMessage="Team not found"
+        status={status}
+        error={error?.message || ''}
+        data={dataAsync as IDataContent[]}
+      />
     </>
   );
 };

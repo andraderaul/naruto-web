@@ -8,10 +8,8 @@ import { CHARACTERS } from '../constants/endpoints';
 import { LINKS } from '../constants/urls';
 import Search from '../components/Search';
 import Alphabet from '../components/Alphabet';
-import LoadingSharingan from '../components/LoadingSharingan';
-import ContentList, {
-  IDataContent,
-} from '../components/ContentList/ContentList';
+import { IDataContent } from '../components/ContentList/ContentList';
+import RenderContent from '../components/RenderContent';
 
 interface IPropsCharacter {
   data: ICharacter[];
@@ -57,29 +55,18 @@ const Characters: React.FC<IPropsCharacter> = ({ data }: IPropsCharacter) => {
     return () => {};
   }, [router, runPromise]);
 
-  const RenderContent: React.FC = () => {
-    const content = {
-      [RequestStatus.PENDING as string]: <LoadingSharingan />,
-      [RequestStatus.RESOLVED as string]: (
-        <ContentList
-          data={dataAsync as IDataContent[]}
-          noContent="Character not found"
-          onClick={LINKS.character}
-        />
-      ),
-      [RequestStatus.REJECTED as string]: <div>{error?.message}</div>,
-      default: <div>Unhandled status: {status}</div>,
-    };
-
-    return content[status ?? 'default'];
-  };
-
   return (
     <>
       <PageTitle title={CHARACTERS} />
       <Search pathname={CHARACTERS} />
       <Alphabet letter={letter} setLetter={setLetter} pathname={CHARACTERS} />
-      <RenderContent />
+      <RenderContent
+        onClick={LINKS.character}
+        noContentMessage="Character not found"
+        status={status}
+        error={error?.message || ''}
+        data={dataAsync as IDataContent[]}
+      />
     </>
   );
 };
