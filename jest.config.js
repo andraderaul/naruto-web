@@ -1,8 +1,9 @@
 module.exports = {
-  testPathIgnorePatterns: ["<rootDir>/.next/", "<rootDir>/node_modules/"],
+  testEnvironment: 'jsdom',
+  testPathIgnorePatterns: ['/node_modules', '/.next/'],
   bail: 1,
   clearMocks: true,
   collectCoverage: true,
-  collectCoverageFrom: ["components/**/*.tsx", "pages/**/*.ts"],
-  coverageReporters: ["lcov", "text"],
+  collectCoverageFrom: ['src/**/*.ts(x)?'],
+  coverageReporters: ['lcov', 'text'],
 };
