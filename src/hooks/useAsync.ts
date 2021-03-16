@@ -14,19 +14,19 @@ export enum RequestStatus {
   REJECTED = 'rejected'
 }
 
-interface IAction {
+type IAction = {
   type?: string
   payload?: TData
   error?: TError
 }
 
-interface IState {
+type IState = {
   status?: string
   data?: TData
   error?: TError
 }
 
-interface IUseAsync {
+type IUseAsync = {
   status?: string
   data?: TData
   error?: TError
