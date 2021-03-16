@@ -3,9 +3,10 @@ import Shape from '.'
 
 describe('<Shape />', () => {
   it('should render Shape', async () => {
-    render(<Shape />)
+    const { container } = render(<Shape />)
 
     const nodeShape = await waitFor(() => screen.getByTestId('shape'))
     expect(nodeShape).toBeTruthy()
+    expect(container.querySelector('div > div > svg > path')).toBeTruthy()
   })
 })

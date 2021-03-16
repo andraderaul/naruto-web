@@ -13,7 +13,7 @@ describe('<RenderContent />', () => {
         data={[]}
         error=""
         noContentMessage=""
-        onClick={() => null}
+        onClick={() => ''}
       />
     )
 
@@ -38,7 +38,7 @@ describe('<RenderContent />', () => {
         data={data}
         error=""
         noContentMessage=""
-        onClick={() => null}
+        onClick={() => ''}
       />
     )
 
@@ -54,7 +54,7 @@ describe('<RenderContent />', () => {
         data={[]}
         error={error}
         noContentMessage=""
-        onClick={() => null}
+        onClick={() => ''}
       />
     )
 
@@ -70,7 +70,7 @@ describe('<RenderContent />', () => {
         data={[]}
         error=""
         noContentMessage=""
-        onClick={() => null}
+        onClick={() => ''}
       />
     )
 

@@ -9,8 +9,30 @@ describe('<Header/>', () => {
     const nodeHeader = await waitFor(() => screen.getByTestId('header'))
     expect(nodeHeader).toBeTruthy()
 
-    const nodeLink = await waitFor(() => screen.getByText('Characters'))
+    const nodeLink = await waitFor(() =>
+      screen.getByRole('link', {
+        name: /characters/i
+      })
+    )
     expect(nodeLink).toBeTruthy()
     userEvent.click(nodeLink)
+
+    expect(
+      screen.getByRole('link', {
+        name: /jutsus/i
+      })
+    ).toBeTruthy()
+
+    expect(
+      screen.getByRole('link', {
+        name: /teams/i
+      })
+    ).toBeTruthy()
+
+    expect(
+      screen.getByRole('link', {
+        name: /naruto web/i
+      })
+    ).toBeTruthy()
   })
 })

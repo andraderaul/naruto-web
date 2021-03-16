@@ -14,6 +14,12 @@ describe('<Card />', () => {
     expect(nodeCard).toBeTruthy()
     userEvent.click(nodeCard)
     expect(onClick).toHaveBeenCalled()
+    expect(
+      screen.getByRole('img', {
+        name: /test/i
+      })
+    ).toBeTruthy()
+    expect(screen.getByText(/test/i)).toBeTruthy()
   })
 
   it('should render Card without img', async () => {

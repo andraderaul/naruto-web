@@ -6,12 +6,13 @@ import Search from '.'
 describe('Search', () => {
   it('should render Search', async () => {
     const pathname = ''
-    render(<Search pathname={pathname} />)
+    const { container } = render(<Search pathname={pathname} />)
 
     const nodeSearch = await waitFor(() => screen.getByTestId('search'))
     expect(nodeSearch).toBeTruthy()
 
-    const nodeInput: HTMLElement = await waitFor(() =>
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const nodeInput: any = await waitFor(() =>
       screen.getByTestId('input-search')
     )
     expect(nodeInput).toBeTruthy()
@@ -23,5 +24,9 @@ describe('Search', () => {
       key: 'Enter',
       keyCode: 13
     })
+
+    expect(screen.getByText(/filter by/i)).toBeTruthy()
+    expect(container.querySelector('div > div > div > svg')).toBeTruthy()
+    expect(screen.getByRole('textbox')).toBeTruthy()
   })
 })
