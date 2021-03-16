@@ -1,8 +1,8 @@
 import { useMemo } from 'react'
 import Head from 'next/head'
 
-interface IPropsPageTitle {
-  title: string
+export type IPropsPageTitle = {
+  title?: string
 }
 
 const PageTitle = ({ title }: IPropsPageTitle) => {

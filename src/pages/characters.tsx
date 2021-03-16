@@ -11,11 +11,11 @@ import Alphabet from '../components/Alphabet'
 import { IDataContent } from '../components/ContentList/ContentList'
 import RenderContent from '../components/RenderContent'
 
-interface IPropsCharacter {
+type IPropsCharacter = {
   data: ICharacter[]
 }
 
-interface IStaticProps {
+type IStaticProps = {
   props: {
     data: ICharacter[]
   }

@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useRouter } from 'next/router'
 import * as S from './Search.styles'
 
-interface IPropsSearch {
+export type IPropsSearch = {
   pathname: string
 }
 

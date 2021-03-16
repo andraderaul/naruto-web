@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import * as S from './Card.styles'
 
-interface IPropsCard {
+export type IPropsCard = {
   src?: string
   name: string
   id: string

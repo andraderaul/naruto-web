@@ -2,13 +2,13 @@ import Grid from '../Grid'
 import Card from '../Card'
 import EmptyState from '../EmptyState'
 
-export interface IDataContent {
+export type IDataContent = {
   id: string
   picture: string
   name: string
 }
 
-interface IPropsContentList {
+export type IPropsContentList = {
   data: IDataContent[]
   noContent: string
   onClick: (id: string) => string

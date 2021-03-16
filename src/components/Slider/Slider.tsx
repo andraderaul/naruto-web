@@ -4,13 +4,13 @@ import SlideItem from '../SlideItem'
 
 import * as S from './Slider.styles'
 
-interface IPropsItem {
+export type IPropsItem = {
   color: string
   url: string
   name: string
 }
 
-interface IPropsSlider {
+export type IPropsSlider = {
   title: string
   items: IPropsItem[]
 }

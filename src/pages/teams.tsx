@@ -11,11 +11,11 @@ import useAsync, { RequestStatus } from '../hooks/useAsync'
 import { IDataContent } from '../components/ContentList/ContentList'
 import RenderContent from '../components/RenderContent'
 
-interface IPropsTeam {
+type IPropsTeam = {
   data: ITeam[]
 }
 
-interface IStaticProps {
+type IStaticProps = {
   props: {
     data: ITeam[]
   }

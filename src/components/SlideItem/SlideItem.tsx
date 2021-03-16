@@ -1,6 +1,6 @@
 import * as S from './SlideItem.styles'
 
-interface ISlideItem {
+export type ISlideItem = {
   color: string
   url: string
   name: string

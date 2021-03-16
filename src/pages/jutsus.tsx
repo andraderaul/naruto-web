@@ -11,11 +11,11 @@ import { LINKS } from '../constants/urls'
 import RenderContent from '../components/RenderContent'
 import { IDataContent } from '../components/ContentList/ContentList'
 
-interface IPropsJutsu {
+type IPropsJutsu = {
   data: IJutsu[]
 }
 
-interface IStaticProps {
+type IStaticProps = {
   props: {
     data: IJutsu[]
   }

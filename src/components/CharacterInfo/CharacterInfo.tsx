@@ -1,14 +1,18 @@
+import { useMemo } from 'react'
 import ICharacter from '../../interfaces/character'
 
 import * as S from './ChacaracterInfo.styles'
 
-interface IPropsInfo {
+export type IPropsInfo = {
   label: string
   value: string | number[]
 }
 
 const Info = ({ label, value }: IPropsInfo) => {
-  const valueFormatted = typeof value === 'string' ? value : value?.join(' - ')
+  const valueFormatted = useMemo(
+    () => (typeof value === 'string' ? value : value?.join(' - ')),
+    [value]
+  )
 
   return (
     <S.Info>

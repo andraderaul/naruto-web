@@ -1,6 +1,6 @@
 import * as S from './Grid.styles'
 
-interface IPropsGrid {
+export type IPropsGrid = {
   children: React.ReactNode
 }
 

@@ -1,6 +1,6 @@
 import * as S from './Layout.styles'
 
-interface IPropsLayout {
+export type IPropsLayout = {
   children: React.ReactNode
 }
 const Layout = ({ children }: IPropsLayout) => (

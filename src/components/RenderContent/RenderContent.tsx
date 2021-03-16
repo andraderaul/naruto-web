@@ -2,7 +2,7 @@ import LoadingSharingan from '../LoadingSharingan'
 import ContentList, { IDataContent } from '../ContentList/ContentList'
 import { RequestStatus } from '../../hooks/useAsync'
 
-interface IPropsRenderContent {
+export type IPropsRenderContent = {
   status?: string
   data: IDataContent[]
   error: string

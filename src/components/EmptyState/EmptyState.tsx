@@ -1,6 +1,6 @@
 import * as S from './EmptyState.styles'
 
-interface IEmptyState {
+export type IEmptyState = {
   description: string
 }
 const EmptyState = ({ description }: IEmptyState) => (

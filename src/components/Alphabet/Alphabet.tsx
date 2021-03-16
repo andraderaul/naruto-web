@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 import { alphabet } from '../../constants'
 import * as S from './Alphabet.styles'
 
-interface IPropsAlphabet {
+export type IPropsAlphabet = {
   letter: string
   pathname: string
   setLetter: (letter: string) => void

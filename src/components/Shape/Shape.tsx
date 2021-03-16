@@ -1,6 +1,6 @@
 import * as S from './Shape.styles'
 
-interface IPropsShape {
+export type IPropsShape = {
   children?: React.ReactNode
 }
 
