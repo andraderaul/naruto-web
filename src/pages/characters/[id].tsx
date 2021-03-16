@@ -5,16 +5,16 @@ import { ROUTES } from '../../constants/urls'
 import { getCharacterById, getCharacters } from '../../lib/characters'
 import CharacterInfo from '../../components/CharacterInfo'
 
-interface IPropsCharacter {
+type IPropsCharacter = {
   data: ICharacter
 }
 
-interface IStaticPath {
+type IStaticPath = {
   paths: string[]
   fallback: boolean
 }
 
-interface IStaticProps {
+type IStaticProps = {
   props: {
     data: ICharacter | null
   }
