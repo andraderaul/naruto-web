@@ -1,7 +1,7 @@
 import api from '../services/api'
 import ITeam from '../interfaces/team'
 import { GET } from '../constants/verbs'
-import { TEAMS } from '../constants/endpoints'
+import { TEAMS, TEAMS_BY_ID } from '../constants/endpoints'
 
 export async function getTeams(): Promise<ITeam[]> {
   try {
@@ -40,5 +40,19 @@ export async function getTeamsByParams(
       throw error
     }
     return []
+  }
+}
+
+export async function getTeamsById(id: string): Promise<ITeam | null> {
+  try {
+    const { data } = await api({
+      method: GET,
+      url: TEAMS_BY_ID(id)
+    })
+    return data
+  } catch (error) {
+    // TODO: throw error
+    console.log(error)
+    return null
   }
 }
