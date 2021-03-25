@@ -3,12 +3,12 @@ import ICharacter from '../../interfaces/character'
 
 import * as S from './ChacaracterInfo.styles'
 
-export type IPropsInfo = {
+export type PropsInfo = {
   label: string
   value: string | number[]
 }
 
-const Info = ({ label, value }: IPropsInfo) => {
+const Info = ({ label, value }: PropsInfo) => {
   const valueFormatted = useMemo(
     () => (typeof value === 'string' ? value : value?.join(' - ')),
     [value]

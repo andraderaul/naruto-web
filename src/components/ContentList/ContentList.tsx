@@ -2,19 +2,19 @@ import Grid from '../Grid'
 import Card from '../Card'
 import EmptyState from '../EmptyState'
 
-export type IDataContent = {
+export type DataContent = {
   id: string
   picture: string
   name: string
 }
 
-export type IPropsContentList = {
-  data: IDataContent[]
+export type PropsContentList = {
+  data: DataContent[]
   noContent: string
   onClick: (id: string) => string
 }
 
-const ContentList = ({ data, noContent, onClick }: IPropsContentList) => (
+const ContentList = ({ data, noContent, onClick }: PropsContentList) => (
   <Grid>
     {data?.length === 0 ? (
       <EmptyState description={noContent} />

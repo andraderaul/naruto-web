@@ -8,7 +8,7 @@ import { TEAMS } from '../constants/endpoints'
 import Search from '../components/Search'
 import Alphabet from '../components/Alphabet'
 import useAsync, { RequestStatus } from '../hooks/useAsync'
-import { IDataContent } from '../components/ContentList/ContentList'
+import { DataContent } from '../components/ContentList/ContentList'
 import RenderContent from '../components/RenderContent'
 
 type IPropsTeam = {
@@ -62,7 +62,7 @@ const Teams = ({ data }: IPropsTeam) => {
         noContentMessage="Team not found"
         status={status}
         error={error?.message || ''}
-        data={dataAsync as IDataContent[]}
+        data={dataAsync as DataContent[]}
       />
     </>
   )

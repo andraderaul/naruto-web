@@ -1,10 +1,10 @@
 import * as S from './Shape.styles'
 
-export type IPropsShape = {
+export type PropsShape = {
   children?: React.ReactNode
 }
 
-const Shape = ({ children }: IPropsShape) => (
+const Shape = ({ children }: PropsShape) => (
   <>
     <S.Shape data-testid="shape">
       <svg

@@ -1,9 +1,9 @@
 import * as S from './EmptyState.styles'
 
-export type IEmptyState = {
+export type EmptyState = {
   description: string
 }
-const EmptyState = ({ description }: IEmptyState) => (
+const EmptyState = ({ description }: EmptyState) => (
   <S.Wrapper>
     <span>{description}</span>
   </S.Wrapper>

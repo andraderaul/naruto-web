@@ -1,14 +1,14 @@
 import { useRouter } from 'next/router'
 import * as S from './Card.styles'
 
-export type IPropsCard = {
+export type PropsCard = {
   src?: string
   name: string
   id: string
   onClick: (id: string) => string
 }
 
-const Card = ({ id, src, name, onClick }: IPropsCard) => {
+const Card = ({ id, src, name, onClick }: PropsCard) => {
   const router = useRouter()
   const handleOnClick = (): void => {
     router.push(onClick(id))

@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useRouter } from 'next/router'
 import * as S from './Search.styles'
 
-export type IPropsSearch = {
+export type PropsSearch = {
   pathname: string
 }
 
@@ -27,7 +27,7 @@ const Icon = () => (
   </S.WrapperIcon>
 )
 
-const Search = ({ pathname }: IPropsSearch) => {
+const Search = ({ pathname }: PropsSearch) => {
   const router = useRouter()
   const [text, setText] = useState('')
 

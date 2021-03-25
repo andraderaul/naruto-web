@@ -5,22 +5,22 @@ import { ROUTES } from '../../constants/urls'
 import { getCharacterById, getCharacters } from '../../lib/characters'
 import CharacterInfo from '../../components/CharacterInfo'
 
-type IPropsCharacter = {
+type PropsCharacter = {
   data: ICharacter
 }
 
-type IStaticPath = {
+type StaticPath = {
   paths: string[]
   fallback: boolean
 }
 
-type IStaticProps = {
+type StaticProps = {
   props: {
     data: ICharacter | null
   }
 }
 
-export async function getStaticPaths(): Promise<IStaticPath> {
+export async function getStaticPaths(): Promise<StaticPath> {
   const data = await getCharacters()
   const paths = data.map((character) => `${ROUTES.characters}/${character.id}`)
   return {
@@ -31,7 +31,7 @@ export async function getStaticPaths(): Promise<IStaticPath> {
 
 export async function getStaticProps(
   context: GetStaticPropsContext
-): Promise<IStaticProps> {
+): Promise<StaticProps> {
   const { params } = context
   const id = params?.id as string
   const data = await getCharacterById(id)
@@ -42,7 +42,8 @@ export async function getStaticProps(
     }
   }
 }
-const Character = ({ data }: IPropsCharacter) => (
+
+const Character = ({ data }: PropsCharacter) => (
   <>
     <PageTitle title={data.name} />
     <CharacterInfo {...data} />

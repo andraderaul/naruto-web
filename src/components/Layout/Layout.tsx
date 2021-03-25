@@ -1,9 +1,9 @@
 import * as S from './Layout.styles'
 
-export type IPropsLayout = {
+export type PropsLayout = {
   children: React.ReactNode
 }
-const Layout = ({ children }: IPropsLayout) => (
+const Layout = ({ children }: PropsLayout) => (
   <S.Layout data-testid="layout">{children}</S.Layout>
 )
 

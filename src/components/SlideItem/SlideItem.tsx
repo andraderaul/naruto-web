@@ -1,12 +1,12 @@
 import * as S from './SlideItem.styles'
 
-export type ISlideItem = {
+export type PropsSlideItem = {
   color: string
   url: string
   name: string
 }
 
-const SlideItem = ({ color, url, name }: ISlideItem) => (
+const SlideItem = ({ color, url, name }: PropsSlideItem) => (
   <>
     <S.Wrapper color={color} className="swiper-slide">
       <S.BackgroundImage url={url} />

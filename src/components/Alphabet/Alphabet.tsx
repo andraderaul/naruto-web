@@ -2,13 +2,13 @@ import { useRouter } from 'next/router'
 import { alphabet } from '../../constants'
 import * as S from './Alphabet.styles'
 
-export type IPropsAlphabet = {
+export type PropsAlphabet = {
   letter: string
   pathname: string
   setLetter: (letter: string) => void
 }
 
-const Alphabet = ({ letter, setLetter, pathname }: IPropsAlphabet) => {
+const Alphabet = ({ letter, setLetter, pathname }: PropsAlphabet) => {
   const router = useRouter()
 
   const handleOnClick = (alpha: string) => () => {

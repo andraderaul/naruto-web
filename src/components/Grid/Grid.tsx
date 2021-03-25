@@ -1,10 +1,10 @@
 import * as S from './Grid.styles'
 
-export type IPropsGrid = {
+export type PropsGrid = {
   children: React.ReactNode
 }
 
-const Grid = ({ children }: IPropsGrid) => (
+const Grid = ({ children }: PropsGrid) => (
   <S.Grid data-testid="grid">{children}</S.Grid>
 )
 

@@ -8,20 +8,20 @@ import { CHARACTERS } from '../constants/endpoints'
 import { LINKS } from '../constants/urls'
 import Search from '../components/Search'
 import Alphabet from '../components/Alphabet'
-import { IDataContent } from '../components/ContentList/ContentList'
+import { DataContent } from '../components/ContentList/ContentList'
 import RenderContent from '../components/RenderContent'
 
-type IPropsCharacter = {
+type PropsCharacter = {
   data: ICharacter[]
 }
 
-type IStaticProps = {
+type StaticProps = {
   props: {
     data: ICharacter[]
   }
 }
 
-export async function getStaticProps(): Promise<IStaticProps> {
+export async function getStaticProps(): Promise<StaticProps> {
   const data = await getCharacters()
   return {
     props: {
@@ -30,7 +30,7 @@ export async function getStaticProps(): Promise<IStaticProps> {
   }
 }
 
-const Characters = ({ data }: IPropsCharacter) => {
+const Characters = ({ data }: PropsCharacter) => {
   const { status, error, data: dataAsync, runPromise } = useAsync({
     status: RequestStatus.RESOLVED,
     data
@@ -63,7 +63,7 @@ const Characters = ({ data }: IPropsCharacter) => {
         noContentMessage="Character not found"
         status={status}
         error={error?.message || ''}
-        data={dataAsync as IDataContent[]}
+        data={dataAsync as DataContent[]}
       />
     </>
   )

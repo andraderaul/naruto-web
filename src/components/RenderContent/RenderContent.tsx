@@ -1,10 +1,10 @@
 import LoadingSharingan from '../LoadingSharingan'
-import ContentList, { IDataContent } from '../ContentList/ContentList'
+import ContentList, { DataContent } from '../ContentList/ContentList'
 import { RequestStatus } from '../../hooks/useAsync'
 
-export type IPropsRenderContent = {
+export type PropsRenderContent = {
   status?: string
-  data: IDataContent[]
+  data: DataContent[]
   error: string
   noContentMessage: string
   onClick: (id: string) => string
@@ -16,7 +16,7 @@ const RenderContent = ({
   error,
   noContentMessage,
   onClick
-}: IPropsRenderContent) => {
+}: PropsRenderContent) => {
   const content = {
     [RequestStatus.PENDING as string]: <LoadingSharingan />,
     [RequestStatus.RESOLVED as string]: (

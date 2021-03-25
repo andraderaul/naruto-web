@@ -1,11 +1,11 @@
 import { useMemo } from 'react'
 import Head from 'next/head'
 
-export type IPropsPageTitle = {
+export type PropsPageTitle = {
   title?: string
 }
 
-const PageTitle = ({ title }: IPropsPageTitle) => {
+const PageTitle = ({ title }: PropsPageTitle) => {
   const formattedTittle = useMemo(() => {
     if (!title) return 'Naruto Web'
 

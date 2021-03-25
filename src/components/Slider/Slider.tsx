@@ -4,18 +4,18 @@ import SlideItem from '../SlideItem'
 
 import * as S from './Slider.styles'
 
-export type IPropsItem = {
+export type PropsItem = {
   color: string
   url: string
   name: string
 }
 
-export type IPropsSlider = {
+export type PropsSlider = {
   title: string
-  items: IPropsItem[]
+  items: PropsItem[]
 }
 
-const Slider = ({ title, items }: IPropsSlider) => {
+const Slider = ({ title, items }: PropsSlider) => {
   const params = {
     spaceBetween: 30,
     loop: true,

@@ -9,7 +9,7 @@ import Alphabet from '../components/Alphabet'
 import useAsync, { RequestStatus } from '../hooks/useAsync'
 import { LINKS } from '../constants/urls'
 import RenderContent from '../components/RenderContent'
-import { IDataContent } from '../components/ContentList/ContentList'
+import { DataContent } from '../components/ContentList/ContentList'
 
 type IPropsJutsu = {
   data: IJutsu[]
@@ -63,7 +63,7 @@ const Jutsus = ({ data }: IPropsJutsu) => {
         noContentMessage="Jutsus not found"
         status={status}
         error={error?.message || ''}
-        data={dataAsync as IDataContent[]}
+        data={dataAsync as DataContent[]}
       />
     </>
   )
