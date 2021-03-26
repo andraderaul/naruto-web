@@ -24,7 +24,8 @@ export async function getStaticProps() {
   }
 }
 
-export default function Home({ teams }: PropsHome): JSX.Element {
+export default function Home({ teams }: PropsHome) {
+  console.log(teams)
   return (
     <>
       <PageTitle title="Naruto Web" />
