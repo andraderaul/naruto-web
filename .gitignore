@@ -4,3 +4,5 @@ yarn-error.log
 .next
 .env
 /coverage
+.env.local
+codegen.yml
