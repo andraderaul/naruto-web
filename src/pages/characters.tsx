@@ -15,13 +15,7 @@ type PropsCharacter = {
   data: ICharacter[]
 }
 
-type StaticProps = {
-  props: {
-    data: ICharacter[]
-  }
-}
-
-export async function getStaticProps(): Promise<StaticProps> {
+export async function getStaticProps() {
   const data = await getCharacters()
   return {
     props: {

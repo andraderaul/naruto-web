@@ -11,16 +11,11 @@ import useAsync, { RequestStatus } from '../hooks/useAsync'
 import { DataContent } from '../components/ContentList/ContentList'
 import RenderContent from '../components/RenderContent'
 
-type IPropsTeam = {
+type PropsTeam = {
   data: ITeam[]
 }
 
-type IStaticProps = {
-  props: {
-    data: ITeam[]
-  }
-}
-export async function getStaticProps(): Promise<IStaticProps> {
+export async function getStaticProps() {
   const data = await getTeams()
   return {
     props: {
@@ -29,7 +24,7 @@ export async function getStaticProps(): Promise<IStaticProps> {
   }
 }
 
-const Teams = ({ data }: IPropsTeam) => {
+const Teams = ({ data }: PropsTeam) => {
   const { status, error, data: dataAsync, runPromise } = useAsync({
     status: RequestStatus.RESOLVED,
     data

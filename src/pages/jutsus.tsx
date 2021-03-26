@@ -11,17 +11,11 @@ import { LINKS } from '../constants/urls'
 import RenderContent from '../components/RenderContent'
 import { DataContent } from '../components/ContentList/ContentList'
 
-type IPropsJutsu = {
+type PropsJutsu = {
   data: IJutsu[]
 }
 
-type IStaticProps = {
-  props: {
-    data: IJutsu[]
-  }
-}
-
-export async function getStaticProps(): Promise<IStaticProps> {
+export async function getStaticProps() {
   const data = await getJutsus()
   return {
     props: {
@@ -30,7 +24,7 @@ export async function getStaticProps(): Promise<IStaticProps> {
   }
 }
 
-const Jutsus = ({ data }: IPropsJutsu) => {
+const Jutsus = ({ data }: PropsJutsu) => {
   const { status, error, data: dataAsync, runPromise } = useAsync({
     status: RequestStatus.RESOLVED,
     data
