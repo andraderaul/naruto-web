@@ -10,7 +10,7 @@ export const Header = styled.header`
   background-color: ${({ theme }) => theme.colors.secondary};
   position: fixed;
   top: 0;
-  z-index: 1;
+  z-index: 2;
 
   ${media.lessThan('medium')`
     position: relative;
@@ -25,7 +25,7 @@ export const Nav = styled.nav`
 
   ${media.lessThan('small')`
     flex-direction: column-reverse;
-    
+
     div {
       display: flex;
       width: 100%;
