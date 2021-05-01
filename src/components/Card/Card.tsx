@@ -11,7 +11,7 @@ export type PropsCard = {
 const Card = ({ id, src, name, onClick }: PropsCard) => {
   const router = useRouter()
   const handleOnClick = (): void => {
-    router.push(onClick(id))
+    router?.push(onClick(id))
   }
 
   return (
