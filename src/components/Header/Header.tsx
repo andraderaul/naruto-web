@@ -7,10 +7,10 @@ import { ROUTES } from '../../constants/urls'
 const Header = () => {
   const router = useRouter()
 
-  const isActive = useCallback((path) => router.pathname === path, [router])
+  const isActive = useCallback((path) => router?.pathname === path, [router])
 
   const handleOnClick = (route: string) => () => {
-    router.push(route)
+    router?.push(route)
   }
 
   return (
