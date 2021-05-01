@@ -2,6 +2,7 @@ const BASE = ''
 
 const ROUTES = {
   home: '/',
+  login: '/login',
   characters: `${BASE}/characters`,
   teams: `${BASE}/teams`,
   jutsus: `${BASE}/jutsus`,

@@ -46,7 +46,7 @@ const Header = () => {
         </S.Links>
         <div>
           <S.Link>
-            <span>Username</span>
+            <Link href={ROUTES.login}>Sign in</Link>
           </S.Link>
         </div>
       </S.Nav>
