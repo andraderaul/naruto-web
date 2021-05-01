@@ -13,7 +13,7 @@ const Alphabet = ({ letter, setLetter, pathname }: PropsAlphabet) => {
 
   const handleOnClick = (alpha: string) => () => {
     setLetter(alpha)
-    router.push({
+    router?.push({
       pathname,
       query: {
         from: alpha
