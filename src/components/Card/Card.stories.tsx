@@ -1,6 +1,6 @@
-import Card from './Card'
 import { action } from '@storybook/addon-actions'
 import { withKnobs, text } from '@storybook/addon-knobs'
+import Card from './Card'
 
 export default {
   component: Card,
@@ -9,7 +9,7 @@ export default {
 }
 
 export const Default = () => {
-  const id = text('id', '3123213')
+  const id = text('id', 'f72d97da-733b-4f9a-aae1-e6a142e7bef6')
   const name = text('name', 'Naruto')
   const src = text(
     'src',

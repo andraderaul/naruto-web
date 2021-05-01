@@ -5,7 +5,7 @@ import * as S from './ChacaracterInfo.styles'
 
 export type PropsInfo = {
   label: string
-  value: string | number[]
+  value: string | number[] | string[]
 }
 
 const Info = ({ label, value }: PropsInfo) => {

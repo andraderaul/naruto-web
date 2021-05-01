@@ -3,9 +3,9 @@ export default interface ICharacter {
   name: string
   kanji_name: string
   birthday: string
-  age: number[]
+  age: number[] | string[]
   gender: string
-  height: number[]
-  weight: number[]
+  height: number[] | string[]
+  weight: number[] | string[]
   picture: string
 }

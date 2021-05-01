@@ -1,6 +1,6 @@
-import Alphabet from './Alphabet'
 import { action } from '@storybook/addon-actions'
 import { withKnobs, text } from '@storybook/addon-knobs'
+import Alphabet from './Alphabet'
 
 export default {
   component: Alphabet,

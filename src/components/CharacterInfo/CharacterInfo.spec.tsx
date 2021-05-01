@@ -2,7 +2,7 @@ import { screen, waitFor } from '@testing-library/react'
 import { renderWithTheme as render } from '../../util/mock/theme.mock'
 import CharacterInfo from '.'
 import ICharacter from '../../interfaces/character'
-import charactersMock from '../../util/mock/data/charactres'
+import charactersMock from '../../util/mock/data/characters'
 
 describe('<CharacterInfo />', () => {
   it('should render CharacterInfo with whole info', async () => {

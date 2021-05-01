@@ -4,7 +4,7 @@ import { ROUTES } from '../../constants/urls'
 
 const Banner = () => {
   const router = useRouter()
-  if (router.route !== ROUTES.home)
+  if (router?.route !== ROUTES.home)
     return <S.NoBanner data-testid="no-banner" />
 
   return (
